@@ -1,0 +1,19 @@
+version: "3.9"
+
+
+services:
+  postgres: 
+    # Vercelの現行postgresのバージョンを設定
+    # ref: https://vercel.com/docs/storage/vercel-postgres/faq#supported-postgres-versions
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      # ずらしてるので注意
+      - 5433:5432
+    volumes:
+      - ./tmp/postgres-data:/var/lib/postgresql/data:delegated
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: primsa-example
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"

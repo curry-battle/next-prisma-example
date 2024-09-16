@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
+import "normalize.css";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +18,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="jp">
+      <body className={inter.className}>
+        <header className="text-gray-600 body-font">
+          <div className="container mx-16 flex flex-wrap pt-8 flex-col md:flex-row items-center">
+            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+              <span className="text-xl">Next.js Example</span>
+            </a>
+            <nav className="md:ml-auto flex gap-8 flex-wrap items-center text-base justify-center">
+              <Link href="/" className="hover:text-gray-900">
+                企業
+              </Link>
+              <Link href="/users" className="hover:text-gray-900">
+                従業員
+              </Link>
+            </nav>
+          </div>
+        </header>
+        <main className="mx-16 py-8">{children}</main>
+        <Toaster richColors closeButton />
+      </body>
     </html>
   );
 }
