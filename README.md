@@ -73,7 +73,7 @@ ts-nodeについても同様の理由
 
 (このレポジトリでは済)
 
-`$ prisma generate` // generate schema.prisma
+`$ prisma init` // generate schema.prisma
 
 `prisma/schema.prisma` を編集
 
@@ -96,6 +96,7 @@ knexのようなロールバックはできない
 その後、  
 `$ prisma migrate reset`  
 `$ prisma migrate dev`
+`$ prisma db seeding # 必要に応じて`
 
 このコマンドにより、DBを一度リセットした上で、他のmigratonファイルを実行した状態に戻せる  
 後述するが、あわせてseedingも同時に実行される  
